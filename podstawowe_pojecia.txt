@@ -1,0 +1,8 @@
+repozytorium - taki folder, w sumie wszystko tam jest
+github - taka aplikacja internetowa co przechowuje repozytorium jako REMOTE
+git - aplikacja która zarządza LOCAL i łączy z REMOTE
+commit - zapisanie zmian
+branch - możemy pracować nad zmianami bez update'owania projektu od razu (na bugFix na przykład)
+checkout - przełączenie się na inny branch
+merge - połączenie zmiany z jednego branch'a do drugiego
+rebase - przenoszenie commit'ów z jednego branch'a do drugiego
