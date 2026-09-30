@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #kwadrat {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #jablko {
+            width: 20px;
+            height: 20px;
+            background-color: green;    
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha106-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            let x = 0;
+            let y = 0;
+
+            let jablkoX = Math.floor((Math.random() * 500) + 1);
+            let jablkoY = Math.floor((Math.random() * 500) + 1);
+
+            $(document).on("keydown keyup keypress", function() {
+                $("#eventType").text(event.type);
+            });
+
+            $(document).on("mousemove", function() {
+                $("#pageX").text(event.pageX);
+                $("#pageY").text(event.pageY);
+            });
+
+            $("#jablko").css({
+                "margin-left": jablkoX + "px",
+                "margin-top": jablkoY + "px"
+            });
+
+            $(document).on("keydown", function() {
+                if(event.key == "d") {
+                    x+=10;
+                    $("#kwadrat").css("margin-left", x+"px");
+                }
+                
+                if(event.key == "a") {
+                    x-=10;
+                    $("#kwadrat").css("margin-left", x+"px");
+                }  
+                
+                if(event.key == "w") {
+                    y-=10;
+                    $("#kwadrat").css("margin-top", y+"px");
+                }
+                
+                if(event.key == "s") {
+                    y+=10;
+                    $("#kwadrat").css("margin-top", y+"px");
+                }   
+            });   
+            
+            $(document).on("keydown", function() {
+                if(x > jablkoX && y > jablkoY) {
+                    alert("halo");
+                }
+
+                // if((x > jablkoX && y > jablkoY) && (x < jablkoX && y < jablkoY)) {
+                //     alert("halo");
+                // }
+            });   
+
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="pole">
+
+    <p>
+        Typ zdarzenia
+        <span id="eventType">---</span>
+    </p>
+
+    <p>
+        Pozycja myszy:
+        x = <span id="pageX">---</span>
+        y = <span id="pageY">---</span>
+    </p>
+
+    <div id="kwadrat"></div>
+    <div id="jablko"></div>
+    
+</body>
+</html>
