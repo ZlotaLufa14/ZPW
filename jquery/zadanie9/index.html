@@ -64,13 +64,15 @@
             });   
             
             $(document).on("keydown", function() {
-                if(x > jablkoX && y > jablkoY) {
-                    alert("halo");
-                }
+                if((x < jablkoX + 20 && x + 200 > jablkoX && y < jablkoY + 20 && y + 200 > jablkoY)) {
+                    jablkoX = Math.floor((Math.random() * 500) + 1);
+                    jablkoY = Math.floor((Math.random() * 500) + 1);
 
-                // if((x > jablkoX && y > jablkoY) && (x < jablkoX && y < jablkoY)) {
-                //     alert("halo");
-                // }
+                    $("#jablko").css({
+                        "margin-left": jablkoX + "px",
+                        "margin-top": jablkoY + "px"
+                    });
+                }
             });   
 
         });

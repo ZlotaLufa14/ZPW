@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha106-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+
+            let licznik = 0;
+
+            $("#dodaj").click( function() {
+                let div = document.createElement("div");
+
+                
+                let x = Math.floor((Math.random() * 250) + 100);
+                let y = Math.floor((Math.random() * 250) + 100);
+
+                let r = Math.floor((Math.random() * 255));
+                let g = Math.floor((Math.random() * 255));
+                let b = Math.floor((Math.random() * 255));
+
+                let liczba = Math.floor((Math.random() * 100) + 1);
+
+                $(div).css({
+                    "background-color": "rgb(" + r + ", " + g + ", " + b + ")",
+                    "width": x + "px",
+                    "height": y + "px"
+                });
+                $(div).text(liczba);
+                $(div).addClass("card");
+
+                $('#container').append(div);
+                $('#licznik').text(++licznik);
+            })
+
+            $("#usun").click( function() {
+                $(".card").remove();
+                licznik = 0;
+                $('#licznik').text(licznik);
+            })
+
+            $(document).on("click", ".card", function() {
+                if(parseInt($(this).text()) % 2 == 0) {
+                    $(this).css("background-color", "lightBlue");
+
+                }else if(parseInt($(this).text()) % 2 == 1) {
+                    $(this).css("background-color", "red");
+                }
+            })
+
+            $(document).on("dblclick", ".card", function() {
+                $(this).remove();
+                $('#licznik').text(--licznik);
+            })
+        });
+    </script>
+</head>
+<body>
+    <button id="dodaj">Dodaj kartę</button>
+    <button id="usun">Usuń wszystkie</button>
+    
+
+    <div id="container">
+        <p id="licznik">0</p>
+    </div>
+    
+</body>
+</html>
