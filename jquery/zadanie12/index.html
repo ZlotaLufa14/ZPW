@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            let pytanie = 1;
+            $("#button").click(function() {
+                if(pytanie == 1) {
+                    let odp1 = $('[name="pytanie1"]:checked').val();
+
+                    if(odp1 == "A") {
+                        $('[for="A"]').css("background-color", "greenyellow");
+                        console.log("poprawna")
+                        $("#wyjasnienie1").show();
+                    } if(odp1 == "B" || odp1 == "C" || odp1 == "D") {
+                        $('[for="A"]').css("background-color", "greenyellow");
+                        $('[for="' + odp1 +'"]').css("background-color", "red");
+                        $("#wyjasnienie1").show();
+                    } else {
+                        console.log("blad")
+                    }
+
+                } else if(pytanie == 2) {
+                    $("#pytanie1_div").hide();
+                    $("#pytanie2_div").show();
+
+                    let odp2 = $('[name="pytanie2"]:checked').val();
+
+                    if(odp2 == "A") {
+                        $('[for="A"]').css("background-color", "greenyellow");
+                        console.log("poprawna")
+                        $("#wyjasnienie2").show();
+                    } if(odp2 == "B" || odp2 == "C" || odp2 == "D") {
+                        $('[for="A"]').css("background-color", "greenyellow");
+                        $('[for="' + odp2 +'"]').css("background-color", "red");
+                        $("#wyjasnienie2").show();
+                    } else {
+                        console.log("blad")
+                    }
+
+                } else if(pytanie == 3) {
+                    $("#pytanie2_div").hide();
+                    $("#pytanie3_div").show();
+
+                    let odp3 = $('[name="pytanie3"]:checked').val();
+
+                    if(odp3 == "A") {
+                        $('[for="A"]').css("background-color", "greenyellow");
+                        console.log("poprawna")
+                        $("#wyjasnienie3").show();
+                    } if(odp3 == "B" || odp3 == "C" || odp3 == "D") {
+                        $('[for="A"]').css("background-color", "greenyellow");
+                        $('[for="' + odp3 +'"]').css("background-color", "red");
+                        $("#wyjasnienie3").show();
+                    } else {
+                        console.log("blad")
+                    }
+
+                }
+            })
+
+            $("#dalej").click(function() {
+                pytanie++;
+            });
+                
+
+        });
+    </script>
+</head>
+<body>
+    <div id="pytanie1_div">
+        <p id="pytanie1">ŁKS czy żYDZEW?</p>
+
+        <input type="radio" id="A" name="pytanie1" value="A">
+        <label for="A">ŁKS</label> <br>
+
+        <input type="radio" id="B" name="pytanie1" value="B">
+        <label for="B">żYDZEW</label> <br>
+
+        <input type="radio" id="C" name="pytanie1" value="C">
+        <label for="C">ORZEŁ ŁÓDŹ</label> <br>
+
+        <input type="radio" id="D" name="pytanie1" value="D">
+        <label for="D">KANAPKI</label> <br>
+
+        <p id="wyjasnienie1" style="display: none;">ŁKS KLUBEM ŁODZI JEST</p>
+    </div>
+
+    <div id="pytanie2_div" style="display: none;">
+        <p id="pytanie2">ŁKS czy żYDZEW?</p>
+
+        <input type="radio" id="A" name="pytanie2" value="A">
+        <label for="A">ŁKS</label> <br>
+
+        <input type="radio" id="B" name="pytanie2" value="B">
+        <label for="B">żYDZEW</label> <br>
+
+        <input type="radio" id="C" name="pytanie2" value="C">
+        <label for="C">ORZEŁ ŁÓDŹ</label> <br>
+
+        <input type="radio" id="D" name="pytanie2" value="D">
+        <label for="D">KANAPKI</label> <br>
+
+        <p id="wyjasnienie2" style="display: none;">ŁKS KLUBEM ŁODZI JEST</p>
+    </div>
+
+    <div id="pytanie3_div" style="display: none;">
+        <p id="pytanie3">ŁKS czy żYDZEW?</p>
+
+        <input type="radio" id="A" name="pytanie3" value="A">
+        <label for="A">ŁKS</label> <br>
+
+        <input type="radio" id="B" name="pytanie3" value="B">
+        <label for="B">żYDZEW</label> <br>
+
+        <input type="radio" id="C" name="pytanie3" value="C">
+        <label for="C">ORZEŁ ŁÓDŹ</label> <br>
+
+        <input type="radio" id="D" name="pytanie3" value="D">
+        <label for="D">KANAPKI</label> <br>
+
+        <p id="wyjasnienie3" style="display: none;">ŁKS KLUBEM ŁODZI JEST</p>
+    </div>
+
+    <button id="button">prześlij</button>
+    <button id="dalej">dalej</button>
+
+</body>
+</html>
