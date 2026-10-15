@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #toggle {
+            background-color: greenyellow;
+            width: 100px;
+            height: 100px;
+        }
+        #slideToggle {
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+        }
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha106-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+
+            let visible = 0;
+
+            $("#button1").click(function() {
+                if(visible == 0) {
+                    $("#text1").hide();
+                    visible++;
+                } else if(visible == 1) {
+                    $("#text1").show();
+                    visible--;
+                }
+            })
+
+            $("#toggleButton").click(function() {
+                $("#toggle").toggle();
+            })
+
+            let visibleSlide = 0;
+
+            $("#button2").click(function() {
+                if(visibleSlide == 0) {
+                    $("#text2").slideUp();
+                    visibleSlide++;
+                } else if(visibleSlide == 1) {
+                    $("#text2").slideDown();
+                    visibleSlide--;
+                }
+            })
+
+            $("#slideToggleButton").click(function() {
+                $("#slideToggle").slideToggle();
+            })
+        });
+    </script>
+</head>
+<body>
+    <button id="button1">HIDE/SHOW</button>
+    <button id="toggleButton">TOGGLE</button>
+
+    <button id="button2">SLIDE UP/SLIDE DOWN</button>
+    <button id="slideToggleButton">SLIDE TOGGLE</button>
+
+    <hr>
+
+    <p id="text1">HIDE/SHOW</p>
+    <div id="toggle"></div>
+
+    <hr>
+    
+    <p id="text2">SLIDE UP/SLIDE DOWN</p>
+    <div id="slideToggle"></div>
+
+    
+</body>
+</html>
