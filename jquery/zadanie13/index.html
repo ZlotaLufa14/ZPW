@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona jquery</title>
+    
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $("#formularz").submit(function(event) {
+                event.preventDefault();
+                if($("#nick").val() === "") {
+                    $("#info").text("Podaj nick");
+                } else {
+                    $("#info").text("Przesłano nick: " + $("#nick").val());
+                }
+
+            });
+
+            $("#formularz2").submit(function(event) {
+                event.preventDefault();
+
+                if($("#haslo").val().length >= 6) {
+                    $("#komunikat").css("color", "greenyellow")
+                    $("#komunikat").text("Zalogowano");
+                } else {
+                    $("#komunikat").css("color", "red")
+                    $("#komunikat").text("Hasło jest za krótkie");
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="formularz">
+        <input type="text" id="nick">
+        <button type="submit">wyslij</button>
+    </form>
+    <p id="info"></p>
+
+    <hr>
+
+    <form id="formularz2">
+        <label for="email">E-mail: </label>
+        <input type="text" id="email"><br>
+        <label for="haslo">Hasło: </label>
+        <input type="text" id="haslo"><br>
+
+        <button type="submit">wyslij</button>
+    </form>
+    <p id="komunikat"></p>
+</body>
+</html>
